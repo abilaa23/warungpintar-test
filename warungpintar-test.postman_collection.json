@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "abbc0389-cba1-44a3-b0ec-58906b23d213",
+		"name": "warungpintar-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c26f05a-8716-421e-b5ff-f37691ba3c88",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Resource has been created\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Resource has been created\");",
+							"});",
+							"",
+							"pm.test(\"URL matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"http://www.mocky.io/v2/5e4e6fc42f00001f2016a761\");",
+							"});",
+							"",
+							"pm.test(\"code matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"STATUS_CREATED\");",
+							"});",
+							"",
+							"console.log('Log 200 OK');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prefix\": \"PT\",\n    \"name\": \"Sejahtera\",\n    \"suffix\": \"Tbk\",\n    \"industry_id\": \"1\",\n    \"employee_size\": \"500\",\n    \"street\": \"Jl.Sudirman kav. 21\",\n    \"place\": \"Sudirman Tower\",\n    \"geograph_id\": 100,\n    \"phone\": \"08561290092\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://run.mocky.io/v3/0beaaccd-1483-47de-9397-dca6cceb4d31",
+					"protocol": "https",
+					"host": [
+						"run",
+						"mocky",
+						"io"
+					],
+					"path": [
+						"v3",
+						"0beaaccd-1483-47de-9397-dca6cceb4d31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Failed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "daa6b375-fc3c-474f-abe5-253221eceb0d",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prefix\": \"PT\",\n    \"name\": \"Sejahtera\",\n    \"suffix\": \"Tbk\",\n    \"industry_id\": \"1\",\n    \"employee_size\": \"500\",\n    \"street\": \"Jl.Sudirman kav. 21\",\n    \"place\": \"Sudirman Tower\",\n    \"geograph_id\": 100,\n    \"phone\": \"08561290092\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.mocky.io/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"mocky",
+						"io"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
